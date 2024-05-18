@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Age Calculator</h2>
+    <label for="dob">Enter your date of birth:</label>
+    <input type="date" id="dob" />
+    <button onclick="calculateAge()">Calculate</button>
+    <div id="result"></div>
+    <script>
+      function calculateAge() {
+        var dobInput = document.getElementById("dob").value;
+        var dob = new Date(dobInput);
+        var today = new Date();
+        var age = today.getFullYear() - dob.getFullYear();
+        var monthDiff = today.getMonth() - dob.getMonth();
+
+        if (
+          monthDiff < 0 ||
+          (monthDiff === 0 && today.getDate() < dob.getDate())
+        ) {
+          age--;
+        }
+
+        document.getElementById("result").innerHTML =
+          "londa jawan hogya  " + age + " years.";
+      }
+    </script>
+  </body>
+</html>
